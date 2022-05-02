@@ -11,6 +11,8 @@
 		CEB0527C2820164F00E83C34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0527B2820164F00E83C34 /* ContentView.swift */; };
 		CEB0527E2820164F00E83C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB0527D2820164F00E83C34 /* Assets.xcassets */; };
 		CEB052812820164F00E83C34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB052802820164F00E83C34 /* Preview Assets.xcassets */; };
+		CEB0528B282017A100E83C34 /* sfsymbols_categories_list.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB0528A282017A100E83C34 /* sfsymbols_categories_list.json */; };
+		CEB0528D282017E800E83C34 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0528C282017E800E83C34 /* SFSymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		CEB0527D2820164F00E83C34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEB052802820164F00E83C34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CEB052872820165E00E83C34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CEB0528A282017A100E83C34 /* sfsymbols_categories_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sfsymbols_categories_list.json; sourceTree = "<group>"; };
+		CEB0528C282017E800E83C34 /* SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,9 @@
 		CEB052782820164F00E83C34 /* SFSymbolsQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				CEB052892820178700E83C34 /* View */,
+				CEB052882820177F00E83C34 /* Model */,
 				CEB052792820164F00E83C34 /* SFSymbolsQuizApp.swift */,
-				CEB0527B2820164F00E83C34 /* ContentView.swift */,
 				CEB0527D2820164F00E83C34 /* Assets.xcassets */,
 				CEB0527F2820164F00E83C34 /* Preview Content */,
 			);
@@ -67,6 +72,23 @@
 				CEB052802820164F00E83C34 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CEB052882820177F00E83C34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEB0528A282017A100E83C34 /* sfsymbols_categories_list.json */,
+				CEB0528C282017E800E83C34 /* SFSymbol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEB052892820178700E83C34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB0527B2820164F00E83C34 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB052812820164F00E83C34 /* Preview Assets.xcassets in Resources */,
+				CEB0528B282017A100E83C34 /* sfsymbols_categories_list.json in Resources */,
 				CEB0527E2820164F00E83C34 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +164,7 @@
 			files = (
 				CEB0527C2820164F00E83C34 /* ContentView.swift in Sources */,
 				CEB0527A2820164F00E83C34 /* SFSymbolsQuizApp.swift in Sources */,
+				CEB0528D282017E800E83C34 /* SFSymbol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
