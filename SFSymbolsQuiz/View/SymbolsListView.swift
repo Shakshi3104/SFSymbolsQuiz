@@ -35,6 +35,7 @@ struct SymbolsListView: View {
                 }
             }
             .navigationTitle("SF Symbols")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -50,9 +51,7 @@ struct SymbolsListView: View {
             } content: {
                 CategorySelectionView()
             }
-
         }
-        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 
