@@ -25,7 +25,9 @@ struct SymbolsListView: View {
                     
                     HStack {
                         Image(systemName: symbol.name)
-                            .padding(.horizontal, 5)
+                            .frame(width: 30)
+                        Spacer()
+                            .frame(width: 15)
                         Text(symbol.name)
                     }
                 }
@@ -54,10 +56,15 @@ struct SymbolsListView: View {
 // MARK: -
 struct CategorySelectionItemView: View {
     var categoryName: String
+    var categorySymbolName: String
     var isSelected: Bool
     
     var body: some View {
         HStack {
+            Image(systemName: categorySymbolName)
+                .frame(width: 30)
+            Spacer()
+                .frame(width: 15)
             Text(categoryName)
             Spacer()
             if isSelected {
@@ -65,6 +72,7 @@ struct CategorySelectionItemView: View {
                     .foregroundColor(.accentColor)
             }
         }
+        // https://swiswiswift.com/2021-04-07/
         .contentShape(Rectangle())
     }
 }
@@ -81,6 +89,7 @@ struct CategorySelectionView: View {
                 Section {
                     CategorySelectionItemView(
                         categoryName: "All",
+                        categorySymbolName: "square.grid.2x2",
                         isSelected: category == nil
                     )
                     .onTapGesture {
@@ -93,6 +102,7 @@ struct CategorySelectionView: View {
                     ForEach(categories, id: \.self) { category in
                         CategorySelectionItemView(
                             categoryName: category.friendlyName(),
+                            categorySymbolName: category.symbolName(),
                             isSelected: self.category == category
                         )
                             .onTapGesture {
@@ -105,7 +115,7 @@ struct CategorySelectionView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
-                        
+                        dismiss()
                     } label: {
                         Text("Cancel")
                     }
@@ -117,7 +127,12 @@ struct CategorySelectionView: View {
 
 // MARK: -
 struct SymbolListView_Previews: PreviewProvider {
+    @State static var category: SFSymbolsCategory? = nil
+    
     static var previews: some View {
-        SymbolsListView()
+        Group {
+            SymbolsListView()
+            CategorySelectionView(category: $category)
+        }
     }
 }
