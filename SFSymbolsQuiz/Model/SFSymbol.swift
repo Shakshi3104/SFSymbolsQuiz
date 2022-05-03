@@ -106,54 +106,54 @@ enum SFSymbolsCategory: String, CaseIterable {
     }
     
     // MARK: Category symbol name
-    //        func symbolName() -> String {
-    //            switch self {
-    //            case .whatsnew:
-    //                <#code#>
-    //            case .multicolor:
-    //                <#code#>
-    //            case .communication:
-    //                <#code#>
-    //            case .weather:
-    //                <#code#>
-    //            case .objectsandtools:
-    //                <#code#>
-    //            case .devices:
-    //                <#code#>
-    //            case .gaming:
-    //                <#code#>
-    //            case .connectivity:
-    //                <#code#>
-    //            case .transportation:
-    //                <#code#>
-    //            case .human:
-    //                <#code#>
-    //            case .nature:
-    //                <#code#>
-    //            case .editing:
-    //                <#code#>
-    //            case .textformatting:
-    //                <#code#>
-    //            case .media:
-    //                <#code#>
-    //            case .keyboard:
-    //                <#code#>
-    //            case .commerce:
-    //                <#code#>
-    //            case .time:
-    //                <#code#>
-    //            case .health:
-    //                <#code#>
-    //            case .shapes:
-    //                <#code#>
-    //            case .arrows:
-    //                <#code#>
-    //            case .indices:
-    //                <#code#>
-    //            case .math:
-    //                <#code#>
-    //            }
-    //        }
+        func symbolName() -> String {
+            switch self {
+            case .whatsnew:
+                return "sparkles"
+            case .multicolor:
+                return "paintpalette"
+            case .communication:
+                return "message"
+            case .weather:
+                return "cloud.sun"
+            case .objectsandtools:
+                return "folder"
+            case .devices:
+                return "desktopcomputer"
+            case .gaming:
+                return "gamecontroller"
+            case .connectivity:
+                return "antenna.radiowaves.left.and.right"
+            case .transportation:
+                return "tram"
+            case .human:
+                return "person.circle"
+            case .nature:
+                return "leaf"
+            case .editing:
+                return "slider.horizontal.3"
+            case .textformatting:
+                return "textformat"
+            case .media:
+                return "playpause"
+            case .keyboard:
+                return "keyboard"
+            case .commerce:
+                return "cart"
+            case .time:
+                return "timer"
+            case .health:
+                return "heart"
+            case .shapes:
+                return "hexagon"
+            case .arrows:
+                return "arrow.right.square"
+            case .indices:
+                return "a.circle"
+            case .math:
+                return "function"
+            }
+        }
 }
 
 // MARK: - SFSymbols
