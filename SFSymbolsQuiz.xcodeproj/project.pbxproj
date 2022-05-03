@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0E3CFE2820B3FC00B98070 /* SymbolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E3CFD2820B3FC00B98070 /* SymbolsListView.swift */; };
 		CEB0527A2820164F00E83C34 /* SFSymbolsQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB052792820164F00E83C34 /* SFSymbolsQuizApp.swift */; };
 		CEB0527C2820164F00E83C34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0527B2820164F00E83C34 /* ContentView.swift */; };
 		CEB0527E2820164F00E83C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB0527D2820164F00E83C34 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0E3CFD2820B3FC00B98070 /* SymbolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListView.swift; sourceTree = "<group>"; };
 		CEB052762820164F00E83C34 /* SFSymbolsQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFSymbolsQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB052792820164F00E83C34 /* SFSymbolsQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsQuizApp.swift; sourceTree = "<group>"; };
 		CEB0527B2820164F00E83C34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB0527B2820164F00E83C34 /* ContentView.swift */,
+				CE0E3CFD2820B3FC00B98070 /* SymbolsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0E3CFE2820B3FC00B98070 /* SymbolsListView.swift in Sources */,
 				CEB0527C2820164F00E83C34 /* ContentView.swift in Sources */,
 				CEB0527A2820164F00E83C34 /* SFSymbolsQuizApp.swift in Sources */,
 				CEB0528D282017E800E83C34 /* SFSymbol.swift in Sources */,
