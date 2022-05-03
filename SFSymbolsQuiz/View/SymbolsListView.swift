@@ -27,10 +27,6 @@ struct SymbolsListView: View {
                         Image(systemName: symbol.name)
                             .padding(.horizontal, 5)
                         Text(symbol.name)
-                        Spacer()
-                        Text(SFSymbolsCategory.init(rawValue: symbol.categories.first!)?.friendlyName() ?? "N/A")
-                            .foregroundColor(.secondary)
-                            .font(.caption)
                     }
                 }
             }
@@ -49,26 +45,60 @@ struct SymbolsListView: View {
             .sheet(isPresented: $isPresented) {
                 // dismiss
             } content: {
-                CategorySelectionView()
+                CategorySelectionView(category: $selectedCategory)
             }
         }
     }
 }
 
 // MARK: -
+struct CategorySelectionItemView: View {
+    var categoryName: String
+    var isSelected: Bool
+    
+    var body: some View {
+        HStack {
+            Text(categoryName)
+            Spacer()
+            if isSelected {
+                Image(systemName: "checkmark")
+                    .foregroundColor(.accentColor)
+            }
+        }
+        .contentShape(Rectangle())
+    }
+}
+
 struct CategorySelectionView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     private let categories = SFSymbolsCategory.allCases
+    @Binding var category: SFSymbolsCategory?
     
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    Text("All")
+                    CategorySelectionItemView(
+                        categoryName: "All",
+                        isSelected: category == nil
+                    )
+                    .onTapGesture {
+                        category = nil
+                        dismiss()
+                    }
                 }
                 
                 Section {
                     ForEach(categories, id: \.self) { category in
-                        Text(category.friendlyName())
+                        CategorySelectionItemView(
+                            categoryName: category.friendlyName(),
+                            isSelected: self.category == category
+                        )
+                            .onTapGesture {
+                                self.category = category
+                                dismiss()
+                            }
                     }
                 }
             }
@@ -79,15 +109,6 @@ struct CategorySelectionView: View {
                     } label: {
                         Text("Cancel")
                     }
-                }
-                
-                ToolbarItem(placement: .confirmationAction) {
-                    Button {
-                        
-                    } label: {
-                        Text("Done")
-                    }
-                    
                 }
             }
         }
