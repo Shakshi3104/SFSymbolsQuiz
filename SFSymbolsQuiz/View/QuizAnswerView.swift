@@ -57,7 +57,7 @@ struct QuizAnswerView: View {
                         quizManager.resetQuestions()
                     }
                 } label: {
-                    if quizManager.quizNumber + 1 >= quizManager.quiz.count {
+                    if quizManager.quizNumber >= quizManager.quiz.count {
                         Text("Finish")
                     } else {
                         Text("Next")
