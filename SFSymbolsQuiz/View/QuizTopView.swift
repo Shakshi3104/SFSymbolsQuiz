@@ -12,6 +12,9 @@ struct QuizTopView: View {
     
     @State private var isActive = false
     
+    @State private var questionCountSelection = 5
+    private let questionCounts = [5, 10, 20, 50, 100, 200, 1000]
+    
     var body: some View {
         NavigationView {
             List {
@@ -27,7 +30,7 @@ struct QuizTopView: View {
                         Button {
                             // prepare quiz
                             quizManager.resetQuestions()
-                            quizManager.generateQuestions(questionNumber: 20)
+                            quizManager.generateQuestions(questionNumber: questionCountSelection)
                             quizManager.prepareQuestion()
                             
                             isActive = true
@@ -38,11 +41,14 @@ struct QuizTopView: View {
                 }
                 
                 Section("Setting") {
-                    HStack {
+                    Picker(selection: $questionCountSelection) {
+                        ForEach(questionCounts, id: \.self) { questionCount in
+                            Text("\(questionCount)")
+                        }
+                    } label: {
                         Text("Number of questions")
-                        Spacer()
-                        Text("20")
                     }
+                    .pickerStyle(.automatic)
                 }
             }
             .navigationTitle("SF Symbols Quiz")
