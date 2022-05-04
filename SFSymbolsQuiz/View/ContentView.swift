@@ -11,6 +11,12 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            QuizView()
+            .tabItem {
+                Label("Quiz", systemImage: "questionmark.circle")
+            }
+            
+            
             SymbolsListView()
                 .tabItem {
                     Label("List", systemImage: "list.bullet.circle")

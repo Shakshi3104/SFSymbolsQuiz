@@ -33,6 +33,7 @@ struct SymbolsListView: View {
                 }
             }
             .navigationTitle("SF Symbols")
+            .navigationViewStyle(.stack)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
