@@ -16,7 +16,6 @@ struct ContentView: View {
                 Label("Quiz", systemImage: "questionmark.circle")
             }
             
-            
             SymbolsListView()
                 .tabItem {
                     Label("List", systemImage: "list.bullet.circle")
