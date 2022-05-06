@@ -18,7 +18,7 @@ struct QuizAnswerView: View {
             Section("What's SF Symbol name?") {
                 HStack {
                     Spacer()
-                    Image(systemName: quizManager.presentQuiz.question.name)
+                    Image(systemName: quizManager.currentQuiz.question.name)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 80,
@@ -31,7 +31,7 @@ struct QuizAnswerView: View {
             }
             
             Section("Choices") {
-                ForEach(quizManager.presentQuiz.choices, id: \.self) { choice in
+                ForEach(quizManager.currentQuiz.choices, id: \.self) { choice in
                     HStack {
                         Text(choice.name)
                         Spacer()
@@ -57,7 +57,7 @@ struct QuizAnswerView: View {
                         quizManager.resetQuestions()
                     }
                 } label: {
-                    if quizManager.quizNumber >= quizManager.quiz.count {
+                    if quizManager.currentQuizNumber >= quizManager.quizCount {
                         Text("Finish")
                     } else {
                         Text("Next")
@@ -66,14 +66,14 @@ struct QuizAnswerView: View {
             } message: {
                 VStack {
                     if quizManager.isCorrect {
-                        Text("Correct rate: \(quizManager.correctCount) / \(quizManager.quiz.count)")
+                        Text("Correct rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
                     } else {
-                        Text("Answer: \(quizManager.presentQuiz.question.name)\nCorrect rate: \(quizManager.correctCount) / \(quizManager.quiz.count)")
+                        Text("Answer: \(quizManager.currentQuiz.question.name)\nCorrect rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
                     }
                 }
             }
         }
-        .navigationTitle("Q. \(quizManager.quizNumber)")
+        .navigationTitle("Q. \(quizManager.currentQuizNumber)")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

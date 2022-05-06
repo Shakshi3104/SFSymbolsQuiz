@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0E3CFE2820B3FC00B98070 /* SymbolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E3CFD2820B3FC00B98070 /* SymbolsListView.swift */; };
+		CE28EE0128250AF7007834B5 /* QuizSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28EE0028250AF7007834B5 /* QuizSummaryView.swift */; };
 		CE99EF762822142400DF073E /* QuizAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99EF752822142400DF073E /* QuizAnswerView.swift */; };
 		CE99EF7828221B6F00DF073E /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99EF7728221B6F00DF073E /* QuizView.swift */; };
 		CE99EF7A28221DDB00DF073E /* QuizTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99EF7928221DDB00DF073E /* QuizTopView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		CE0E3CFD2820B3FC00B98070 /* SymbolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListView.swift; sourceTree = "<group>"; };
+		CE28EE0028250AF7007834B5 /* QuizSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSummaryView.swift; sourceTree = "<group>"; };
 		CE32981C2822813C00367BDA /* screenshots_quiz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshots_quiz.png; sourceTree = "<group>"; };
 		CE32981D2822813C00367BDA /* screenshots_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshots_list.png; sourceTree = "<group>"; };
 		CE99EF752822142400DF073E /* QuizAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAnswerView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CE99EF752822142400DF073E /* QuizAnswerView.swift */,
 				CE99EF7728221B6F00DF073E /* QuizView.swift */,
 				CE99EF7928221DDB00DF073E /* QuizTopView.swift */,
+				CE28EE0028250AF7007834B5 /* QuizSummaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				CE99EF7A28221DDB00DF073E /* QuizTopView.swift in Sources */,
 				CEB0528D282017E800E83C34 /* SFSymbol.swift in Sources */,
 				CE99EF7E2822233700DF073E /* Collection+Extension.swift in Sources */,
+				CE28EE0128250AF7007834B5 /* QuizSummaryView.swift in Sources */,
 				CE99EF7828221B6F00DF073E /* QuizView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

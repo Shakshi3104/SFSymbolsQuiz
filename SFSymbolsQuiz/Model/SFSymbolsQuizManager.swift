@@ -25,13 +25,17 @@ struct SFSymbolsQuestion {
 
 // MARK: - SF Symbols Quiz Manager
 class SFSymbolsQuizManager: ObservableObject {
-    var quiz = [SFSymbolsQuestion]()
+    private var quiz = [SFSymbolsQuestion]()
     
-    @Published var presentQuiz = SFSymbolsQuestion()
+    @Published var currentQuiz = SFSymbolsQuestion()
     @Published var isFinished = false
     
-    var quizNumber = 0
+    /// current quiz number
+    var currentQuizNumber = 0
+    /// number of correct answer
     var correctCount = 0
+    /// number of quiz
+    var quizCount = 0
     
     var isCorrect = false
     
@@ -39,6 +43,8 @@ class SFSymbolsQuizManager: ObservableObject {
     
     // generate SF Symbols questions
     func generateQuestions(questionNumber: Int = 20, category: SFSymbolsCategory? = nil) {
+        quizCount = questionNumber
+        
         let shuffledSFSymbols = sfSymbols.allCases(category: category).shuffled()
         // SF Symbols list for question
         let questionSFSymbols = shuffledSFSymbols.prefix(questionNumber)
@@ -57,17 +63,17 @@ class SFSymbolsQuizManager: ObservableObject {
     }
     
     func prepareQuestion() {
-        if quizNumber >= quiz.count {
+        if currentQuizNumber >= quiz.count {
             isFinished = true
         } else {
-            presentQuiz = quiz[quizNumber]
+            currentQuiz = quiz[currentQuizNumber]
         }
         
-        quizNumber += 1
+        currentQuizNumber += 1
     }
     
     func judge(selection: SFSymbol) {
-        if presentQuiz.question == selection {
+        if currentQuiz.question == selection {
             correctCount += 1
             isCorrect = true
             print("🎉 Correct!")
@@ -79,7 +85,7 @@ class SFSymbolsQuizManager: ObservableObject {
     // reset SF Symbols questions
     func resetQuestions() {
         quiz = [SFSymbolsQuestion]()
-        quizNumber = 0
+        currentQuizNumber = 0
         correctCount = 0
         isFinished = false
     }
