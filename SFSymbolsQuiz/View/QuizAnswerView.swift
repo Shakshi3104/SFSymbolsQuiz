@@ -11,6 +11,7 @@ struct QuizAnswerView: View {
     @ObservedObject var quizManager: SFSymbolsQuizManager
     
     @State var isPresented = false
+    @State var isSummaryPresented = false
     @Binding var isActive: Bool
     
     var body: some View {
@@ -44,37 +45,44 @@ struct QuizAnswerView: View {
                     }
                 }
             }
-            .alert(quizManager.isCorrect ? "🎉 Correct!" : "💦 Wrong",
-                   isPresented: $isPresented) {
-                Button {
-                    // prepare next question
-                    quizManager.prepareQuestion()
-                    isPresented = false
-                    
-                    // finish quiz
-                    if quizManager.isFinished {
-                        isActive = false
-                        quizManager.resetQuestions()
-                    }
-                } label: {
-                    if quizManager.currentQuizNumber >= quizManager.quizCount {
-                        Text("Finish")
-                    } else {
-                        Text("Next")
-                    }
+        }
+        // Navigation View
+        .navigationTitle("Q. \(quizManager.currentQuizNumber)")
+        .navigationBarTitleDisplayMode(.inline)
+        // MARK: - Alert
+        .alert(quizManager.currentQuiz.isCorret ? "🎉 Correct!" : "💦 Wrong",
+               isPresented: $isPresented) {
+            Button {
+                // prepare next question
+                quizManager.prepareQuestion()
+                isPresented = false
+                
+                if quizManager.isFinished {
+                    isSummaryPresented = true
                 }
-            } message: {
-                VStack {
-                    if quizManager.isCorrect {
-                        Text("Correct rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
-                    } else {
-                        Text("Answer: \(quizManager.currentQuiz.question.name)\nCorrect rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
-                    }
+            } label: {
+                if quizManager.currentQuizNumber >= quizManager.quizCount {
+                    Text("Finish")
+                } else {
+                    Text("Next")
+                }
+            }
+        } message: {
+            VStack {
+                if quizManager.currentQuiz.isCorret {
+                    Text("Correct rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
+                } else {
+                    Text("Answer: \(quizManager.currentQuiz.question.name)\nCorrect rate: \(quizManager.correctCount) / \(quizManager.quizCount)")
                 }
             }
         }
-        .navigationTitle("Q. \(quizManager.currentQuizNumber)")
-        .navigationBarTitleDisplayMode(.inline)
+        // MARK: - Summary Sheet
+        .sheet(isPresented: $isSummaryPresented) {
+            // After dismissed the sheet
+            isActive = false
+        } content: {
+            QuizSummaryView(quizManager: quizManager)
+        }
     }
 }
 

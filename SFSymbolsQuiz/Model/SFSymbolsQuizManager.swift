@@ -8,24 +8,27 @@
 import Foundation
 
 // MARK: - SF Symbols Question
-struct SFSymbolsQuestion {
+struct SFSymbolsQuestion: Hashable {
     let question: SFSymbol
-    var choices: [SFSymbol]
+    let choices: [SFSymbol]
+    var isCorret: Bool
     
     init() {
         question = SFSymbol(name: "iphone", categories: [])
         choices = []
+        isCorret = false
     }
     
     init(question: SFSymbol, choices: [SFSymbol]) {
         self.question = question
         self.choices = choices
+        self.isCorret = false
     }
 }
 
 // MARK: - SF Symbols Quiz Manager
 class SFSymbolsQuizManager: ObservableObject {
-    private var quiz = [SFSymbolsQuestion]()
+    private(set) var quiz = [SFSymbolsQuestion]()
     
     @Published var currentQuiz = SFSymbolsQuestion()
     @Published var isFinished = false
@@ -37,11 +40,9 @@ class SFSymbolsQuizManager: ObservableObject {
     /// number of quiz
     var quizCount = 0
     
-    var isCorrect = false
-    
     private let sfSymbols = SFSymbols()
     
-    // generate SF Symbols questions
+    // generate SF Symbols questions from `SFSymbols`
     func generateQuestions(questionNumber: Int = 20, category: SFSymbolsCategory? = nil) {
         quizCount = questionNumber
         
@@ -62,23 +63,26 @@ class SFSymbolsQuizManager: ObservableObject {
         }
     }
     
+    // prepare the current question
     func prepareQuestion() {
         if currentQuizNumber >= quiz.count {
             isFinished = true
         } else {
             currentQuiz = quiz[currentQuizNumber]
+            currentQuizNumber += 1
         }
-        
-        currentQuizNumber += 1
     }
     
+    // judge the answer
     func judge(selection: SFSymbol) {
         if currentQuiz.question == selection {
             correctCount += 1
-            isCorrect = true
+            currentQuiz.isCorret = true
+            quiz[currentQuizNumber - 1].isCorret = true
             print("🎉 Correct!")
         } else {
-            isCorrect = false
+            currentQuiz.isCorret = false
+            quiz[currentQuizNumber - 1].isCorret = false
         }
     }
     
@@ -87,6 +91,7 @@ class SFSymbolsQuizManager: ObservableObject {
         quiz = [SFSymbolsQuestion]()
         currentQuizNumber = 0
         correctCount = 0
+        quizCount = 0
         isFinished = false
     }
 }
