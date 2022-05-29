@@ -16,4 +16,4 @@ In the List tab, you can see a list of symbols that will be used in the quiz.
 ## Requirements
 
 - Xcode 13.3+
-- iOS 15.0+
+- iOS 15.4+
