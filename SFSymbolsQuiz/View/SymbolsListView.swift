@@ -29,6 +29,7 @@ struct SymbolsListView: View {
                         Spacer()
                             .frame(width: 15)
                         Text(symbol.name)
+                            .textSelection(.enabled)
                     }
                 }
             }
