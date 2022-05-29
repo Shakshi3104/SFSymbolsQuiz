@@ -41,7 +41,11 @@ struct SymbolsListView: View {
                         // Category filter action
                         isPresented.toggle()
                     } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
+                        if selectedCategory != nil {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                        } else {
+                            Image(systemName: "line.3.horizontal.decrease.circle")
+                        }
                     }
                 }
             }
