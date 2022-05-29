@@ -40,6 +40,7 @@
 		CEB052872820165E00E83C34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEB0528A282017A100E83C34 /* sfsymbols_categories_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sfsymbols_categories_list.json; sourceTree = "<group>"; };
 		CEB0528C282017E800E83C34 /* SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
+		CED9069F284384B1005EC418 /* SFSymbolsQuiz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SFSymbolsQuiz_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		CE32981B2822812600367BDA /* materials */ = {
 			isa = PBXGroup;
 			children = (
+				CED9069F284384B1005EC418 /* SFSymbolsQuiz_icon.png */,
 				CE32981D2822813C00367BDA /* screenshots_list.png */,
 				CE32981C2822813C00367BDA /* screenshots_quiz.png */,
 			);

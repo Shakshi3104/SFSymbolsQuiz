@@ -1,5 +1,9 @@
 # SF Symbols Quiz
 
+<p align="center">
+    <img src="materials/SFSymbolsQuiz_icon.png" width=64>
+</p>
+
 **SF Symbols Quiz** is the 4-choice quiz app in which you answer the names of [SF Symbols](https://developer.apple.com/sf-symbols/). This application supports the symbols included in **SF Symbols 3.3**.
 
 <p align="center">
